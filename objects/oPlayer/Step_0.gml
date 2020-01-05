@@ -29,6 +29,13 @@ else { //slow down movement if not touching ground
 	hsp = move * walksp/2;
 }
 
+if (place_meeting(x, y+60, oTrampoline)){
+	trampo = 1;
+}
+else {
+	trampo = 0;
+}
+
 
 //Horizontal Collision
 if (place_meeting(x+hsp, y, oWall)) {
@@ -44,14 +51,18 @@ if (place_meeting(x+hsp, y, oWall)) {
 }
 
 //Jump
-if(ground && key_jump){
+if(ground && key_jump && not trampo){
 	vsp = -12;
-	hsp = move*20;
 }
 
 //Trampoline Jump
-if(place_meeting(x, y+32, oTrampoline)&&key_jump){
-	vsp *= -1.1;
+if(place_meeting(x, y+32, oTrampoline) && key_jump){
+	if (abs(vsp) >= 6){
+		vsp *= -1.5;
+	}
+	else { 
+		vsp = -12; 
+	}
 }
 
 //Trampoline
@@ -115,5 +126,6 @@ if (hsp == 0 && vsp == 0) {
 	}
 	//Apply Movement
 		x += hsp;
+		vsp = sign(vsp)*min(abs(vsp), max_vsp);
 		y += vsp;
 }

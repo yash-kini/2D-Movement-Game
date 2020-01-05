@@ -10,7 +10,7 @@ var move = key_right - key_left;
 if (key_rope){
 	var inst = instance_create_depth(x, y, 0, oPlayer); 
 	with (inst){
-		hsp = other.swing_speed*other.launch_speed;
+		hsp = (other.swing_speed + 1)*other.launch_speed;
 		vsp = -abs(power(other.launch_speed,1.5)); 
 	}
 	instance_destroy();
@@ -29,7 +29,7 @@ y_ = hook_distance*dsin(hook_angle) + hook.y;
 //Climb up/down rope
 if(key_up or key_down){
 	var moveVert = key_down - key_up
-	if (hook_distance > min_hook_distance){
+	if (hook_distance + moveVert*climb_speed > min_hook_distance){
 		hook_distance +=  moveVert*climb_speed; 
 	}
 }
@@ -37,6 +37,10 @@ if(key_up or key_down){
 //Collision Dismount
 if (place_meeting(x_, y_, oWall)) {
 	var inst = instance_create_depth(x, y, 0, oPlayer); 
+	with (inst){
+		hsp = other.x_ - other.x;
+		vsp = other.y_ - other.y; 
+	}
 	instance_destroy();
 } else {
 	x = x_;
