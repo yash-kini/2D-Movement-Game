@@ -1,8 +1,12 @@
 {
-    "id": "a79fc5c1-853f-4356-bef5-1f021eba0fdd",
-    "modelName": "GMScript",
-    "mvc": "1.0",
-    "name": "scr_pickCover",
-    "IsCompatibility": false,
-    "IsDnD": false
+  "isDnD": false,
+  "isCompatibility": false,
+  "parent": {
+    "name": "Scripts",
+    "path": "folders/Scripts.yy",
+  },
+  "resourceVersion": "1.0",
+  "name": "scr_pickCover",
+  "tags": [],
+  "resourceType": "GMScript",
 }
