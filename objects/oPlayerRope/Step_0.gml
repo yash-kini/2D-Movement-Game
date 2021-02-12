@@ -17,14 +17,22 @@ if (key_rope){
 }
 h = grv;
 if (hook_angle > 90 && hook_angle < 270) {
-	h*=-1;
+	h*=-1; //Gravity Damping
 }
 
 //Movement Calculations
 swing_speed += h + move/100;
+//Collison check
 hook_angle += (swing_speed);
 x_ = -hook_distance*dcos(hook_angle) + hook.x;
 y_ = hook_distance*dsin(hook_angle) + hook.y;
+if (place_meeting(x_, y_, oWall)) {
+	hook_angle -= swing_speed; // Undo previous hook angle
+	swing_speed *= (-.5); // Collison damping
+	hook_angle += swing_speed; //Set angle the opposite direction
+	x_ = -hook_distance*dcos(hook_angle) + hook.x;
+	y_ = hook_distance*dsin(hook_angle) + hook.y;
+}
 
 //Climb up/down rope
 if(key_up or key_down){
@@ -34,15 +42,18 @@ if(key_up or key_down){
 	}
 }
 
-//Collision Dismount
-if (place_meeting(x_, y_, oWall)) {
-	var inst = instance_create_depth(x, y, 0, oPlayer); 
+//Ground Collision Dismount
+if (place_meeting(x_, y_+10, oWall)) {
+	var inst = instance_create_depth(x, y, 0, oPlayerStandRope); 
 	with (inst){
 		hsp = other.x_ - other.x;
 		vsp = other.y_ - other.y; 
 	}
 	instance_destroy();
-} else {
-	x = x_;
-	y = y_;
 }
+
+
+// Move player
+x = x_;
+y = y_;
+
