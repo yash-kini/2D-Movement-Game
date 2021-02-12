@@ -1,4 +1,4 @@
-/// @description Insert description here
+/// @description Is player staning or should they be swinging
 // You can write your code in this editor
 var ground = 0; // if touching ground
 if (place_meeting(x, y+10, oWall)){ ground = 1; }
