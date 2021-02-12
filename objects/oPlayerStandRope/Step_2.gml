@@ -10,5 +10,3 @@ if (not ground) {
 		self.hp = other.hp;
 	}
 }
-
-             
