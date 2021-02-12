@@ -31,6 +31,7 @@
     {"id":{"name":"oHook","path":"objects/oHook/oHook.yy",},"order":9,},
     {"id":{"name":"oPlayerRope","path":"objects/oPlayerRope/oPlayerRope.yy",},"order":11,},
     {"id":{"name":"oPistol","path":"objects/oPistol/oPistol.yy",},"order":13,},
+    {"id":{"name":"oPlayerStandRope","path":"objects/oPlayerStandRope/oPlayerStandRope.yy",},"order":24,},
     {"id":{"name":"oBullet","path":"objects/oBullet/oBullet.yy",},"order":15,},
     {"id":{"name":"oEnemy","path":"objects/oEnemy/oEnemy.yy",},"order":17,},
     {"id":{"name":"oPistolEnemy","path":"objects/oPistolEnemy/oPistolEnemy.yy",},"order":19,},

@@ -9,7 +9,7 @@ key_rope = keyboard_check_pressed(vk_lshift);
 //low health
 if (key_rope){
 	instance_destroy();
-	var inst = instance_create_depth(x, y, 0, oPlayerRope); 
+	var inst = instance_create_depth(x, y, 0, oPlayerStandRope); 
 	with (inst) {
 		self.hp = other.hp;
 	}
