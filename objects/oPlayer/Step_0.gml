@@ -4,16 +4,8 @@
 key_left = keyboard_check(ord("A")); //if key is held down
 key_right = keyboard_check(ord("D")); 
 key_jump = keyboard_check_pressed(vk_space); //if key was pressed on the frame
-key_rope = keyboard_check_pressed(vk_lshift);
 
-//low health
-if (key_rope){
-	instance_destroy();
-	var inst = instance_create_depth(x, y, 0, oPlayerStandRope); 
-	with (inst) {
-		self.hp = other.hp;
-	}
-}
+
 
 //Calculate Movement
 var ground; //if touching ground

@@ -1,23 +1,13 @@
 /// @description Insert description here
-key_rope = keyboard_check_pressed(vk_lshift) or keyboard_check_pressed(vk_space); 
 key_left = keyboard_check(ord("A")); //if key is held down
 key_right = keyboard_check(ord("D")); 
 key_up = keyboard_check(ord("W")); //if key is held down
 key_down = keyboard_check(ord("S")); 
 var move = key_right - key_left;
 
-//Dismount
-if (key_rope){
-	var inst = instance_create_depth(x, y, 0, oPlayer); 
-	with (inst){
-		hsp = (other.swing_speed + 1)*other.launch_speed;
-		vsp = -abs(power(other.launch_speed,1.5)); 
-	}
-	instance_destroy();
-}
 h = grv;
 if (hook_angle > 90 && hook_angle < 270) {
-	h*=-1; //Gravity Damping
+	h*=-1; //Gravity Damping when swinging above. 
 }
 
 //Movement Calculations
@@ -41,17 +31,6 @@ if(key_up or key_down){
 		hook_distance +=  moveVert*climb_speed; 
 	}
 }
-
-//Ground Collision Dismount
-if (place_meeting(x_, y_+10, oWall)) {
-	var inst = instance_create_depth(x, y, 0, oPlayerStandRope); 
-	with (inst){
-		hsp = other.x_ - other.x;
-		vsp = other.y_ - other.y; 
-	}
-	instance_destroy();
-}
-
 
 // Move player
 x = x_;
