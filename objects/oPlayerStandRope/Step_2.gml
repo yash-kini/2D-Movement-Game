@@ -1,5 +1,4 @@
 /// @description Is player staning or should they be swinging
-// You can write your code in this editor
 key_rope = keyboard_check_pressed(vk_lshift);
 
 //Dismount
