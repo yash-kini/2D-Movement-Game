@@ -9,16 +9,16 @@ if (key_rope){
 		self.hp = other.hp;
 	}
 
-}
+} else {
+	var ground = 0; // if touching ground
+	if (place_meeting(x, y+10, oWall)){ ground = 1; }
 
-
-var ground = 0; // if touching ground
-if (place_meeting(x, y+10, oWall)){ ground = 1; }
-
-if (not ground) {
-	instance_destroy(object_index);
-	var inst = instance_create_depth(x, y, 0, oPlayerRope); 
-	with (inst) {
-		self.hp = other.hp;
+	if (not ground) {
+		instance_destroy(object_index);
+		var inst = instance_create_depth(x, y, 0, oPlayerRope); 
+		with (inst) {
+			self.hp = other.hp;
+		}
 	}
 }
+
