@@ -5,8 +5,8 @@ view_w_half = camera_get_view_width(cam) / 2;
 view_h_half = camera_get_view_height(cam) / 2;
 
 //Wiggle room before the camera starts to move
-xBoundary = 0;
-yBoundary = 0;
+xBoundary = 200;
+yBoundary = 200;
 
 xTo = xstart;
 yTo = ystart;
