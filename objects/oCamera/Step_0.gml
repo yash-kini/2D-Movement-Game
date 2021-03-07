@@ -40,5 +40,5 @@ if (layer_exists(City3)){
 }
 if (layer_exists(City4)){
 	layer_x(City4, x/4);
-	layer_y(City4, y/1.1 - view_h_half);
+	layer_y(City4, y/1.1 - view_h_half + 600);
 }
