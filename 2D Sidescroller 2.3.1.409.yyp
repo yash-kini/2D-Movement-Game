@@ -32,7 +32,7 @@
     {"id":{"name":"instance_nth_nearest","path":"scripts/instance_nth_nearest/instance_nth_nearest.yy",},"order":5,},
     {"id":{"name":"scr_moveTo","path":"scripts/scr_moveTo/scr_moveTo.yy",},"order":7,},
     {"id":{"name":"oPlayer","path":"objects/oPlayer/oPlayer.yy",},"order":1,},
-    {"id":{"name":"oRope","path":"objects/oRope/oRope.yy",},"order":26,},
+    {"id":{"name":"oRopeController","path":"objects/oRopeController/oRopeController.yy",},"order":26,},
     {"id":{"name":"oWall","path":"objects/oWall/oWall.yy",},"order":3,},
     {"id":{"name":"oCoverL","path":"objects/oCoverL/oCoverL.yy",},"order":5,},
     {"id":{"name":"oCoverR","path":"objects/oCoverR/oCoverR.yy",},"order":7,},
