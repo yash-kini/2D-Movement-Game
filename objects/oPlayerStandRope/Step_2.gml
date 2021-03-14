@@ -1,6 +1,7 @@
 /// @description Is player staning or should they be swinging
 key_rope = mouse_check_button_pressed(mb_right);
 key_jump = keyboard_check_pressed(vk_space);
+key_up = keyboard_check(ord("W"));
 
 //Calculate new hook_distance, and hook_angle
 hook_distance = point_distance(hook.x, hook.y, x, y);
@@ -26,6 +27,18 @@ else if (key_jump) {
 		self.hook = other.hook;
 		self.hook_angle = other.hook_angle;
 		self.hook_distance = other.hook_distance - 50; //shorten rope if player jumps
+	}
+}
+//Climb up rope
+else if (key_up) {
+	instance_destroy(object_index);
+	var inst = instance_create_depth(x, y, 0, oPlayerRope); 
+	show_debug_message("HOOK standing: "+string(hook));
+	with (inst) {
+		self.hp = other.hp;
+		self.hook = other.hook;
+		self.hook_angle = other.hook_angle;
+		self.hook_distance = other.hook_distance - 25; //shorten rope if player jumps
 	}
 }
 else {
