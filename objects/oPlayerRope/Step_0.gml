@@ -6,7 +6,6 @@ key_down = keyboard_check(ord("S"));
 var move = key_right - key_left;
 
 h = grv;
-show_debug_message("Hook Angle: "+string(hook_angle));
 if (hook_angle > 90 && hook_angle < 270) {
 	h*=-1; //Gravity Damping when swinging above. 
 }
@@ -21,8 +20,14 @@ if (hook_angle < 0) {
 	hook_angle += 360;
 }
 
-//Collison check
+//Climb up/down rope
+if(key_up or key_down){
+	var moveVert = key_down - key_up
+	hook_distance +=  moveVert*climb_speed; 	
+}
+hook_distance = max(hook_distance, min_hook_distance);
 
+//Collison check
 x_ = -hook_distance*dcos(hook_angle) + hook.x;
 y_ = hook_distance*dsin(hook_angle) + hook.y;
 if (place_meeting(x_, y_, oWall)) {
@@ -31,14 +36,6 @@ if (place_meeting(x_, y_, oWall)) {
 	hook_angle += swing_speed; //Set angle the opposite direction
 	x_ = -hook_distance*dcos(hook_angle) + hook.x;
 	y_ = hook_distance*dsin(hook_angle) + hook.y;
-}
-
-//Climb up/down rope
-if(key_up or key_down){
-	var moveVert = key_down - key_up
-	if (hook_distance + moveVert*climb_speed > min_hook_distance){
-		hook_distance +=  moveVert*climb_speed; 
-	}
 }
 
 // Move player
