@@ -18,3 +18,4 @@ anim = 0; //1 if anim is playing, 0 otherwise. Used when player movement is stop
 hsp = 0;
 vsp = 0;
 first_bounce = 1; //If this is the first bounce a user has made on trampoline 
+double_jumps = 1; //Number of jumps player can make after leaving ground

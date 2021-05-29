@@ -18,7 +18,7 @@ if (place_meeting(x, y+10, oWall)){
 }
 else { //slow down movement if not touching ground
 	ground = 0
-	hsp = move * walksp/2;
+	hsp = move * walksp*.75;
 }
 
 if (place_meeting(x, y+60, oTrampoline)){
@@ -45,6 +45,15 @@ if (place_meeting(x+hsp, y, oWall)) {
 //Jump
 if(ground && key_jump && not trampo){
 	vsp = -12;
+}
+
+//Double Jump
+if(not ground && key_jump && not trampo && double_jumps > 0){
+	vsp = -12;
+	double_jumps--;
+}
+if (ground) {
+	double_jumps = 1; //reset double jump after player touches ground
 }
 
 //Trampoline Jump
