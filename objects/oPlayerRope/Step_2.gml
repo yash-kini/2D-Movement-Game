@@ -1,4 +1,4 @@
-/// @description Insert description here
+/// @description State transitions
 key_rope = mouse_check_button_pressed(mb_right) or keyboard_check_pressed(vk_space); 
 
 //Voluntary Dismount

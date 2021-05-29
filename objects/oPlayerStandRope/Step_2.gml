@@ -1,4 +1,4 @@
-/// @description Is player staning or should they be swinging
+/// @description State transitions
 key_rope = mouse_check_button_pressed(mb_right);
 key_jump = keyboard_check_pressed(vk_space);
 key_up = keyboard_check(ord("W"));
